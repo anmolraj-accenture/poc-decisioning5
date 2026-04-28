@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deals Demo (AJO‑D)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✅ CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ✅ Page 2 adobeDataLayer bootstrap -->
+  <script>
+    window.adobeDataLayer = window.adobeDataLayer || [];
+    window.adobeDataLayer.push({
+      eventType: "web.webPageDetails.pageViews",
+      page: {
+        name: "deals",
+        url: location.href,
+        section: "marketing",
+        language: document.documentElement.lang || "en"
+      },
+      user: {
+        state: "UnAuthenticated"
+      },
+      decisioning: {
+        placements: ["ajo-offer", "wireless-deals"],
+        surfaceUri: "web://anmolraj-accenture.github.io/poc-decisioning2#ajo-offer"
+      }
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- ========================================================= -->
+  <!-- ✅ PAGE 1: PREFERENCE SELECTION FORM -->
+  <!-- ========================================================= -->
+  <form id="subscriptionForm">
+    <p>Choose your preferred Offer:</p>
+
+    <div>
+      <input type="radio" id="stocks" name="assetclass" value="Stocks">
+      <label for="stocks">Offer1‑Deals</label>
+    </div>
+
+    <div>
+      <input type="radio" id="bonds" name="assetclass" value="Bonds">
+      <label for="bonds">Offer2‑Deals</label>
+    </div>
+
+    <div>
+      <input type="radio" id="cd" name="assetclass" value="CD">
+      <label for="cd">Offer3‑Deals</label>
+    </div>
+
+    <br>
+    <button type="button" onclick="handleSubmission()">Submit Preference</button>
+  </form>
+
+  <div id="error-message" style="color:red;"></div>
+  <div id="message" style="color:green;font-weight:bold;"></div>
+
+  <hr />
+
+  <!-- ========================================================= -->
+  <!-- ✅ PAGE 2: DEALS EXPERIENCE -->
+  <!-- ========================================================= -->
+
+  <!-- Header -->
+  <header class="hdr">
+    <div class="hdr__bar">
+      <a class="brand" href="#" aria-label="Demo Home">DemoTel</a>
+      <nav class="nav">
+        <a href="#ajo-offer">Deals</a>
+        <a href="#wireless-deals">Wireless</a>
+        <a href="#internet-deals">Internet</a>
+        <a href="#support">Support</a>
+      </nav>
+      <div class="hdr__actions">
+        <input class="search" placeholder="Search site" aria-label="Search site" />
+        <button class="btn btn--ghost" type="button">Cart</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1>Get the Best Deals on Phones, Wireless and Internet</h1>
+        <p class="muted">Dummy page for testing AJO‑D placements and offer attributes.</p>
+        <div class="hero__cta">
+          <a class="btn" href="#ajo-offer">Shop deals</a>
+          <a class="btn btn--ghost" href="#wireless-deals">See wireless</a>
+        </div>
+      </div>
+      <div class="hero__callout" role="note">
+        <div class="kpi">ORDER NOW</div>
+        <a href="tel:0000000000" class="phone">000‑000‑0000</a>
+      </div>
+    </section>
+
+    <!-- Category pills -->
+    <section class="pillbar" aria-label="Shop deals by category">
+      <a class="pill" href="#wireless-deals">Wireless</a>
+      <a class="pill" href="#internet-deals">Internet</a>
+      <a class="pill" href="#bundles-deals">Bundles</a>
+      <a class="pill" href="#accessory-deals">Accessories</a>
+    </section>
+
+    <!-- ✅ AJO Placement: TOP DEALS -->
+    <section id="ajo-offer"
+             class="section"
+             data-personalization-region-id="web://anmolraj-accenture.github.io/poc-decisioning2#ajo-offer">
+      <div class="section__head">
+        <h2>Top deals</h2>
+        <span class="tag">New &amp; existing customers</span>
+      </div>
+
+      <div class="grid" data-placement="ajo-offer"></div>
+    </section>
+
+    <!-- ✅ AJO Placement: WIRELESS DEALS -->
+    <section id="wireless-deals" class="section">
+      <div class="section__head">
+        <h2>Wireless deals</h2>
+        <span class="tag">Featured</span>
+      </div>
+
+      <div class="grid" data-placement="wireless-deals"></div>
+    </section>
+
+    <!-- Stub sections -->
+    <section id="internet-deals" class="section section--stub">
+      <div class="section__head">
+        <h2>Internet deals</h2><span class="tag">Stub</span>
+      </div>
+      <p class="muted">Optional: add another placement if needed.</p>
+    </section>
+
+    <section id="bundles-deals" class="section section--stub">
+      <div class="section__head">
+        <h2>Bundle deals</h2><span class="tag">Stub</span>
+      </div>
+      <p class="muted">Optional: add another placement if needed.</p>
+    </section>
+
+    <section id="accessory-deals" class="section section--stub">
+      <div class="section__head">
+        <h2>Accessory deals</h2><span class="tag">Stub</span>
+      </div>
+      <p class="muted">Optional: add another placement if needed.</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="ftr" id="support">
+    <div class="wrap ftr__grid">
+      <div>
+        <div class="brand brand--small">DemoTel</div>
+        <p class="muted">Demo footer for AJO‑D testing.</p>
+      </div>
+      <div class="ftr__links">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ✅ YOUR MERGED JS (Page 1 + Page 2 logic) -->
+  <script src="scripts.js"></script>
+
+  <!-- ✅ ADOBE LAUNCH ALWAYS LAST -->
+  <script
+    src="https://assets.adobedtm.com/e72b4113c11a/523d00e5384d/launch-37956bbe7fae.min.js"
+    async>
+  </script>
+
+</body>
+</html>
